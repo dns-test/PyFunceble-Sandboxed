@@ -54,4 +54,4 @@ script:
   #- echo "${TRAVIS_JOB_ID}" > "${TRAVIS_BUILD_DIR}/run_id"
   #- cat "${TRAVIS_BUILD_DIR}/run_id"
   #- bash "${TRAVIS_BUILD_DIR}/dns-test.sh"
-  - pyfunceble -d mypdns.org mypdns.com -db --database-type mariadb -ci
+  - pyfunceble -d mypdns.org mypdns.com -db --database-type mariadb --ci
