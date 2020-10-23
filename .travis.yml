@@ -12,7 +12,7 @@ env:
   - TZ: UTC
   - PYTHON_VERSION: 3.9.0
   - SCRIPT_SOURCE_URI: https://raw.githubusercontent.com/dns-test/script-hub/master
-  - PYFUNCEBLE_DEBUG_ON_SCREEN: true
+  - PYFUNCEBLE_DEBUG_ON_SCREEN: false
   - Pyfunceble_version: 'PyFunceble@dev'
   - PYFUNCEBLE_CONFIG_DIR: "${TRAVIS_BUILD_DIR}/.pyfunceble/"
   - PYFUNCEBLE_OUTPUT_LOCATION: "${TRAVIS_BUILD_DIR}/.pyfunceble/"
@@ -42,9 +42,9 @@ install:
   #- pip install --no-cache-dir -U "git+https://github.com/funilrys/${Pyfunceble_version}"
   - pip install --no-cache-dir -U pyfunceble-dev dnspython[dnssec,idna]
   - pyfunceble --version
-  - wget -O "${TRAVIS_BUILD_DIR}/setup_travis.sh" "${SCRIPT_SOURCE_URI}/travis/setup_travis.sh"
-    && sudo chmod +x "${TRAVIS_BUILD_DIR}/setup_travis.sh"
-  - sudo bash "${TRAVIS_BUILD_DIR}/setup_travis.sh"
+  #- wget -O "${TRAVIS_BUILD_DIR}/setup_travis.sh" "${SCRIPT_SOURCE_URI}/travis/setup_travis.sh"
+  #  && sudo chmod +x "${TRAVIS_BUILD_DIR}/setup_travis.sh"
+  #- sudo bash "${TRAVIS_BUILD_DIR}/setup_travis.sh"
 
 git:
   depth: 2
@@ -54,4 +54,4 @@ script:
   #- echo "${TRAVIS_JOB_ID}" > "${TRAVIS_BUILD_DIR}/run_id"
   #- cat "${TRAVIS_BUILD_DIR}/run_id"
   #- bash "${TRAVIS_BUILD_DIR}/dns-test.sh"
-  - pyfunceble -d mypdns.org mypdns.com -db --database-type mariadb --ci --dns 95.216.209.53
+  - pyfunceble -d mypdns.org mypdns.com -db --database-type mariadb --ci --dns 95.216.209.53 --http -nw
