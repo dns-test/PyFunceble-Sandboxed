@@ -12,6 +12,7 @@ env:
   - TZ: UTC
   - PYTHON_VERSION: 3.9.1
   - SCRIPT_SOURCE_URI: https://raw.githubusercontent.com/dns-test/script-hub/master
+  - PYFUNCEBLE_DEBUG: TRUE
   #- PYFUNCEBLE_DEBUG_ON_SCREEN: false
   #- Pyfunceble_version: 'PyFunceble@dev'
   - Pyfunceble_version: 'PyFunceble@4.0.0-dev'
