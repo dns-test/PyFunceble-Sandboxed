@@ -55,4 +55,4 @@ script:
   #- echo "${TRAVIS_JOB_ID}" > "${TRAVIS_BUILD_DIR}/run_id"
   #- cat "${TRAVIS_BUILD_DIR}/run_id"
   #- bash "${TRAVIS_BUILD_DIR}/dns-test.sh"
-  - pyfunceble -d mypdns.org mypdns.com --database-type mariadb --ci --dns 95.216.209.53 --no-whois
+  - pyfunceble --database-type mariadb --ci --dns 95.216.209.53 --no-whois -d mypdns.org mypdns.com
