@@ -10,7 +10,7 @@ env:
   - TRAVIS_REPO_SLUG: "${TRAVIS_REPO_SLUG}"
   - GIT_BRANCH: "${TRAVIS_BRANCH}"
   - TZ: UTC
-  - PYTHON_VERSION: 3.9.0
+  - PYTHON_VERSION: 3.9.1
   - SCRIPT_SOURCE_URI: https://raw.githubusercontent.com/dns-test/script-hub/master
   #- PYFUNCEBLE_DEBUG_ON_SCREEN: false
   #- Pyfunceble_version: 'PyFunceble@dev'
