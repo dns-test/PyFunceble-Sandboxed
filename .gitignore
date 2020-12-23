@@ -3,7 +3,9 @@ dns-test.sh
 setup_recursor.sh
 setup_miniconda.sh
 setup_travis.sh
-.pyfunceble
+
+# Uncomment the following if you don't want any commit at the end of a session.
+# .pyfunceble
 
 # Miniconda
 miniconda.sh
