@@ -61,5 +61,5 @@ script:
   #- echo "${TRAVIS_JOB_ID}" > "${TRAVIS_BUILD_DIR}/run_id"
   #- cat "${TRAVIS_BUILD_DIR}/run_id"
   #- bash "${TRAVIS_BUILD_DIR}/dns-test.sh"
-  - pyfunceble --database-type mariadb --ci --dns 95.216.209.53 --whois-lookup -d mypdns.org mypdns.com --logging-level critical --ci-max-minutes 2
-  - tree -a -I '.git*'
+  - pyfunceble --database-type mariadb --ci --dns 95.216.209.53 --whois-lookup -d mypdns.org mypdns.com
+  # - tree -a -I '.git*'
