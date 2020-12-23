@@ -26,6 +26,11 @@ env:
   - PYFUNCEBLE_DB_PASSWORD="${DB_PASSWORD}"
   - PYFUNCEBLE_DB_PORT="${DB_PORT}"
 
+addons:
+  apt:
+    packages:
+    - tree
+
 install:
   - export PATH="${HOME}/miniconda/bin:${PATH}"
   - if [[ "${TRAVIS_OS_NAME}" == "osx" ]]; then wget https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
@@ -57,3 +62,4 @@ script:
   #- cat "${TRAVIS_BUILD_DIR}/run_id"
   #- bash "${TRAVIS_BUILD_DIR}/dns-test.sh"
   - pyfunceble --database-type mariadb --ci --dns 95.216.209.53 --whois-lookup -d mypdns.org mypdns.com --logging-level critical --ci-max-minutes 2
+  - tree -a -I '.git*'
