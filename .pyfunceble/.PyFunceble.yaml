@@ -60,7 +60,6 @@ http_codes:
         potentially_down:
         - 400
         - 402
-        - 403
         - 404
         - 409
         - 410
@@ -68,8 +67,8 @@ http_codes:
         - 414
         - 415
         - 416
+        - 451
         potentially_up:
-        - 0
         - 300
         - 301
         - 302
@@ -77,6 +76,7 @@ http_codes:
         - 304
         - 305
         - 307
+        - 308
         - 403
         - 405
         - 406
@@ -85,15 +85,29 @@ http_codes:
         - 411
         - 413
         - 417
+        - 418
+        - 421
+        - 422
+        - 423
+        - 424
+        - 426
+        - 428
+        - 429
+        - 431
         - 500
         - 501
         - 502
         - 503
         - 504
         - 505
+        - 506
+        - 507
+        - 508
+        - 510
         up:
         - 100
         - 101
+        - 102
         - 200
         - 201
         - 202
@@ -101,6 +115,11 @@ http_codes:
         - 204
         - 205
         - 206
+        - 207
+        - 208
+        - 226
+        - 429
+    self_managed: false
 links:
     api_date_format: https://pyfunceble.funilrys.com/api/date-format
     api_no_referer: https://pyfunceble.funilrys.com/api/no-referer
