@@ -10,3 +10,13 @@ github.com/,SYNTAX,50.list,/home/travis/build/dns-test/PyFunceble-Sandboxed/50.l
 github./com,SYNTAX,50.list,/home/travis/build/dns-test/PyFunceble-Sandboxed/50.list,2020-12-25 13:19:50.228459
 github.com/.,SYNTAX,50.list,/home/travis/build/dns-test/PyFunceble-Sandboxed/50.list,2020-12-25 13:19:50.229325
 http://github.com/,SYNTAX,50.list,/home/travis/build/dns-test/PyFunceble-Sandboxed/50.list,2020-12-25 13:19:50.230448
+mkto-*.com,SYNTAX,easyprivacy_trackingservers.txt,/home/travis/build/dns-test/PyFunceble-Sandboxed/easyprivacy_trackingservers.txt,2020-12-25 17:41:23.476968
+185.165.169.108,SYNTAX,easyprivacy_trackingservers.txt,/home/travis/build/dns-test/PyFunceble-Sandboxed/easyprivacy_trackingservers.txt,2020-12-25 17:41:24.581125
+185.193.38.148,SYNTAX,easyprivacy_trackingservers.txt,/home/travis/build/dns-test/PyFunceble-Sandboxed/easyprivacy_trackingservers.txt,2020-12-25 17:41:24.589399
+35.194.26.233,SYNTAX,easyprivacy_trackingservers.txt,/home/travis/build/dns-test/PyFunceble-Sandboxed/easyprivacy_trackingservers.txt,2020-12-25 17:41:24.633675
+35.239.57.233,SYNTAX,easyprivacy_trackingservers.txt,/home/travis/build/dns-test/PyFunceble-Sandboxed/easyprivacy_trackingservers.txt,2020-12-25 17:41:24.642311
+45.32.105.134,SYNTAX,easyprivacy_trackingservers.txt,/home/travis/build/dns-test/PyFunceble-Sandboxed/easyprivacy_trackingservers.txt,2020-12-25 17:41:24.650763
+77.162.125.199,SYNTAX,easyprivacy_trackingservers.txt,/home/travis/build/dns-test/PyFunceble-Sandboxed/easyprivacy_trackingservers.txt,2020-12-25 17:41:24.659127
+minero-proxy-*.sh,SYNTAX,easyprivacy_trackingservers.txt,/home/travis/build/dns-test/PyFunceble-Sandboxed/easyprivacy_trackingservers.txt,2020-12-25 17:41:26.921266
+thelocal.*,SYNTAX,fanboy_annoyance_specific_block.txt,/home/travis/build/dns-test/PyFunceble-Sandboxed/fanboy_annoyance_specific_block.txt,2020-12-25 17:41:31.955580
+subscriptions.cbc.ca,SYNTAX,fanboy_annoyance_specific_block.txt,/home/travis/build/dns-test/PyFunceble-Sandboxed/fanboy_annoyance_specific_block.txt,2020-12-25 17:41:32.135977
