@@ -130,7 +130,7 @@ jobs:
       script:
         - pyfunceble --ci --syntax -ex -w $(nproc --ignore=2) --dns-lookup
           --database-type mariadb -f "${TRAVIS_BUILD_DIR}/issues/50.list"
-          -f 'https://raw.githubusercontent.com/spirillen/ci_test/patch-2/test.list'
+          -f 'https://raw.githubusercontent.com/PyFunceble/ci_test/master/test.list'
     - language: generic
       os: linux
       dist: focal
@@ -140,7 +140,7 @@ jobs:
       script:
         - pyfunceble --ci --syntax -ex -w $(nproc --ignore=2) --dns-lookup
           -f "${TRAVIS_BUILD_DIR}/issues/50.list"
-          -f 'https://raw.githubusercontent.com/spirillen/ci_test/patch-2/test.list'
+          -f 'https://raw.githubusercontent.com/PyFunceble/ci_test/master/test.list'
     # Waiting for https://github.com/funilrys/PyFunceble/issues/154
     #- language: generic
     #  os: linux
@@ -150,8 +150,8 @@ jobs:
     #    - PYTHON_VERSION="3.9.1"
     #  script:
     #    - pyfunceble --ci --syntax -ex -w $(nproc --ignore=2) --database-type mariadb
-    #      -f "${TRAVIS_BUILD_DIR}/issues/50.list"
-    #      -f 'https://raw.githubusercontent.com/spirillen/ci_test/patch-2/test.list'
+    #      -f 'https://raw.githubusercontent.com/dns-test/PyFunceble-Sandboxed/master/issues/50.list'
+    #      -f 'https://raw.githubusercontent.com/PyFunceble/ci_test/master/test.list'
     #- language: generic
     #  os: linux
     #  dist: focal
@@ -160,5 +160,5 @@ jobs:
     #    - PYTHON_VERSION="3.9.1"
     #  script:
     #    - pyfunceble --ci --syntax -ex -w $(nproc --ignore=2) --database-type mariadb
-    #      -f "${TRAVIS_BUILD_DIR}/issues/50.list" --no-file
-    #      -f 'https://raw.githubusercontent.com/spirillen/ci_test/patch-2/test.list'
+    #      -f 'https://raw.githubusercontent.com/dns-test/PyFunceble-Sandboxed/master/issues/50.list' --no-file
+    #      -f 'https://raw.githubusercontent.com/PyFunceble/ci_test/master/test.list'
