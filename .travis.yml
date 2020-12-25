@@ -12,7 +12,7 @@ env:
   - TZ: UTC
   - PYTHON_VERSION: 3.9.1
   - SCRIPT_SOURCE_URI: https://raw.githubusercontent.com/dns-test/script-hub/master
-  - PYFUNCEBLE_DEBUG: TRUE
+  #- PYFUNCEBLE_DEBUG: TRUE
   #- PYFUNCEBLE_DEBUG_ON_SCREEN: false
   #- Pyfunceble_version: 'PyFunceble@dev'
   - Pyfunceble_version: 'PyFunceble@4.0.0-dev'
@@ -61,5 +61,10 @@ script:
   #- echo "${TRAVIS_JOB_ID}" > "${TRAVIS_BUILD_DIR}/run_id"
   #- cat "${TRAVIS_BUILD_DIR}/run_id"
   #- bash "${TRAVIS_BUILD_DIR}/dns-test.sh"
-  - pyfunceble --database-type mariadb --ci --dns 95.216.209.53 --whois-lookup -d mypdns.org mypdns.com --logging-level critical
+  #- pyfunceble --database-type mariadb --ci --dns 95.216.209.53 --whois-lookup -d mypdns.org mypdns.com --logging-level critical
+  - pyfunceble --ci --syntax -ex -w 3 -f https://raw.githubusercontent.com/PyFunceble/ci_test/master/test.list --display-status INVALID --logging-level info
+  - pyfunceble --ci --syntax -ex -w 3 -f https://raw.githubusercontent.com/PyFunceble/ci_test/master/test.list --display-status INVALID --logging-level debug
+  - pyfunceble --ci --syntax -ex -w 3 -f https://raw.githubusercontent.com/PyFunceble/ci_test/master/test.list --display-status INVALID --logging-level warning
+  - pyfunceble --ci --syntax -ex -w 3 -f https://raw.githubusercontent.com/PyFunceble/ci_test/master/test.list --display-status INVALID --logging-level error
+  - pyfunceble --ci --syntax -ex -w 3 -f https://raw.githubusercontent.com/PyFunceble/ci_test/master/test.list --display-status INVALID --logging-level critical
   # - tree -a -I '.git*'
