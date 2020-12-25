@@ -78,16 +78,14 @@ jobs:
       name: "adblock + syntax #156"
       env:
         - PYTHON_VERSION="3.9.1"
-      before_script:
-        - curl --retry 5 'https://raw.githubusercontent.com/easylist/easylist/master/easyprivacy/easyprivacy_trackingservers.txt' -o "${TRAVIS_BUILD_DIR}/issues/easyprivacy_trackingservers.txt"
-        - curl --retry 5 'https://raw.githubusercontent.com/easylist/easylist/master/easylist_cookie/easylist_cookie_general_hide.txt' -o "${TRAVIS_BUILD_DIR}/issues/easylist_cookie_general_hide.txt"
-        - curl --retry 5 'https://raw.githubusercontent.com/easylist/easylist/master/fanboy-addon/fanboy_annoyance_specific_block.txt' -o "${TRAVIS_BUILD_DIR}/issues/fanboy_annoyance_specific_block.txt"
-        - tree "${TRAVIS_BUILD_DIR}/issues/"
       script:
-        - pyfunceble --ci --syntax -ex -w $(nproc --ignore=2)
-          --adblock -f "${TRAVIS_BUILD_DIR}/issues/easyprivacy_trackingservers.txt"
-          --adblock -f "${TRAVIS_BUILD_DIR}/issues/easylist_cookie_general_hide.txt"
-          --adblock -f "${TRAVIS_BUILD_DIR}/issues/fanboy_annoyance_specific_block.txt"
+        - pyfunceble --ci -a --syntax -ex -w $(nproc --ignore=2)
+          --adblock -f 'https://raw.githubusercontent.com/easylist/easylist/master/easyprivacy/easyprivacy_trackingservers.txt'
+          'https://raw.githubusercontent.com/easylist/easylist/master/easylist_cookie/easylist_cookie_general_hide.txt'
+          'https://raw.githubusercontent.com/easylist/easylist/master/fanboy-addon/fanboy_annoyance_specific_block.txt'
+          --ci-branch "${TRAVIS_BRANCH}" --ci-distribution-branch "${TRAVIS_BRANCH}" -dbr 0
+          --dns doh.powerdns.org --dns-protocol HTTPS
+          --dots --share-logs
         - tree --prune -f "${TRAVIS_BUILD_DIR}/.pyfunceble/"
     - language: generic
       os: linux
@@ -95,15 +93,13 @@ jobs:
       name: "adblock + syntax #156"
       env:
         - PYTHON_VERSION="3.9.1"
-      before_script:
-        - curl --retry 5 'https://raw.githubusercontent.com/easylist/easylist/master/easyprivacy/easyprivacy_trackingservers.txt' -o "${TRAVIS_BUILD_DIR}/issues/easyprivacy_trackingservers.txt"
-        - curl --retry 5 'https://raw.githubusercontent.com/easylist/easylist/master/easylist_cookie/easylist_cookie_general_hide.txt' -o "${TRAVIS_BUILD_DIR}/issues/easylist_cookie_general_hide.txt"
-        - curl --retry 5 'https://raw.githubusercontent.com/easylist/easylist/master/fanboy-addon/fanboy_annoyance_specific_block.txt' -o "${TRAVIS_BUILD_DIR}/issues/fanboy_annoyance_specific_block.txt"
-        - tree "${TRAVIS_BUILD_DIR}/issues/"
       script:
-        - pyfunceble --ci --syntax -ex -w $(nproc --ignore=2)
-          --adblock -f "${TRAVIS_BUILD_DIR}/issues/easyprivacy_trackingservers.txt"
-          "${TRAVIS_BUILD_DIR}/issues/easylist_cookie_general_hide.txt"
-          "${TRAVIS_BUILD_DIR}/issues/fanboy_annoyance_specific_block.txt"
+        - pyfunceble --ci -a --database-type mariadb -ex -w $(nproc --ignore=2)
+          --adblock -f 'https://raw.githubusercontent.com/easylist/easylist/master/easyprivacy/easyprivacy_trackingservers.txt'
+          'https://raw.githubusercontent.com/easylist/easylist/master/easylist_cookie/easylist_cookie_general_hide.txt'
+          'https://raw.githubusercontent.com/easylist/easylist/master/fanboy-addon/fanboy_annoyance_specific_block.txt'
+          --ci-branch "${TRAVIS_BRANCH}" --ci-distribution-branch "${TRAVIS_BRANCH}" -dbr 0
+          --dns doh.powerdns.org --dns-protocol HTTPS
+          --dots --share-logs
         - tree --prune -f "${TRAVIS_BUILD_DIR}/.pyfunceble/"
 
