@@ -72,93 +72,14 @@ script:
 jobs:
   include:
     - stage: "CLI (running) Tests"
-    #  language: generic
-    #  os: linux
-    #  dist: focal
-    #  name: "display-status INVALID logging-level info"
-    #  env:
-    #    - PYTHON_VERSION="3.9.1"
-    #  script:
-    #    - pyfunceble --ci --syntax -ex -w $(nproc --ignore=2) -f https://raw.githubusercontent.com/PyFunceble/ci_test/master/test.list --display-status INVALID --logging-level info
-    #- language: generic
-    #  os: osx
-    #  osx_image: xcode11.2
-    #  name: "Code Test with Python 3.8.3 under macOS 10.14 (Mojave)"
-    #  env:
-    #    - PYTHON_VERSION="3.9.1"
-    #  script:
-    #    - pyfunceble --ci --syntax -ex -w $(nproc --ignore=2) -f https://raw.githubusercontent.com/PyFunceble/ci_test/master/test.list --display-status INVALID --logging-level warning
-    #- language: generic
-    #  os: linux
-    #  dist: focal
-    #  name: "Code Test with Python 3.7.7 under Ubuntu 18.04 (Bionic Beaver)"
-    #  env:
-    #    - PYTHON_VERSION="3.9.1"
-    #  script:
-    #    - pyfunceble --ci --syntax -ex -w $(nproc --ignore=2) -f https://raw.githubusercontent.com/PyFunceble/ci_test/master/test.list --display-status INVALID --logging-level error
-    #- language: generic
-    #  os: osx
-    #  osx_image: xcode11.2
-    #  name: "Code Test with Python 3.7.7 under macOS 10.14 (Mojave)"
-    #  env:
-    #    - PYTHON_VERSION="3.9.1"
-    #  script:
-    #    - pyfunceble --ci --syntax -ex -w $(nproc --ignore=2) -f https://raw.githubusercontent.com/PyFunceble/ci_test/master/test.list --display-status INVALID --logging-level critical
-    - language: generic
+      language: generic
       os: linux
       dist: focal
-      name: "Add a function to check a list of URLs for invalid URLs only. #50"
+      name: "adblock + syntax"
       env:
         - PYTHON_VERSION="3.9.1"
       script:
-        - pyfunceble --ci --syntax -ex -w $(nproc --ignore=2) -f "${TRAVIS_BUILD_DIR}/issues/50.list"
-    - language: generic
-      os: linux
-      dist: bionic
-      name: "Add a function to check a list of URLs for invalid URLs only. #50"
-      env:
-        - PYTHON_VERSION="3.9.1"
-      script:
-        - pyfunceble --ci --syntax -ex -w $(nproc --ignore=2) -f "${TRAVIS_BUILD_DIR}/issues/50.list"
-          --database-type mariadb
-    - language: generic
-      os: linux
-      dist: focal
-      name: "Several input sources at once `-f` `-uf` `-ad` #115"
-      env:
-        - PYTHON_VERSION="3.9.1"
-      script:
-        - pyfunceble --ci --syntax -ex -w $(nproc --ignore=2) --dns-lookup
-          --database-type mariadb -f "${TRAVIS_BUILD_DIR}/issues/50.list"
-          -f 'https://raw.githubusercontent.com/PyFunceble/ci_test/master/test.list'
-    - language: generic
-      os: linux
-      dist: focal
-      name: "Several input sources at once `-f` `-uf` `-ad` #115"
-      env:
-        - PYTHON_VERSION="3.9.1"
-      script:
-        - pyfunceble --ci --syntax -ex -w $(nproc --ignore=2) --dns-lookup
-          -f "${TRAVIS_BUILD_DIR}/issues/50.list"
-          -f 'https://raw.githubusercontent.com/PyFunceble/ci_test/master/test.list'
-    # Waiting for https://github.com/funilrys/PyFunceble/issues/154
-    #- language: generic
-    #  os: linux
-    #  dist: focal
-    #  name: "Several input sources at once `-f` `-uf` `-ad` #115"
-    #  env:
-    #    - PYTHON_VERSION="3.9.1"
-    #  script:
-    #    - pyfunceble --ci --syntax -ex -w $(nproc --ignore=2) --database-type mariadb
-    #      -f 'https://raw.githubusercontent.com/dns-test/PyFunceble-Sandboxed/master/issues/50.list'
-    #      -f 'https://raw.githubusercontent.com/PyFunceble/ci_test/master/test.list'
-    #- language: generic
-    #  os: linux
-    #  dist: focal
-    #  name: "Several input sources at once `-f` `-uf` `-ad` #115"
-    #  env:
-    #    - PYTHON_VERSION="3.9.1"
-    #  script:
-    #    - pyfunceble --ci --syntax -ex -w $(nproc --ignore=2) --database-type mariadb
-    #      -f 'https://raw.githubusercontent.com/dns-test/PyFunceble-Sandboxed/master/issues/50.list' --no-file
-    #      -f 'https://raw.githubusercontent.com/PyFunceble/ci_test/master/test.list'
+        - pyfunceble --ci --syntax -ex -w $(nproc --ignore=2) --adblock https://raw.githubusercontent.com/easylist/easylist/master/easyprivacy/easyprivacy_trackingservers.txt
+          https://raw.githubusercontent.com/easylist/easylist/master/easylist_cookie/easylist_cookie_general_hide.txt
+          https://raw.githubusercontent.com/easylist/easylist/master/fanboy-addon/fanboy_annoyance_specific_block.txt
+        - tree --prune -f "${TRAVIS_BUILD_DIR}/.pyfunceble/"
