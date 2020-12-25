@@ -85,9 +85,9 @@ jobs:
         - tree "${TRAVIS_BUILD_DIR}/issues/"
       script:
         - pyfunceble --ci --syntax -ex -w $(nproc --ignore=2)
-          --adblock "${TRAVIS_BUILD_DIR}/issues/easyprivacy_trackingservers.txt"
-          --adblock "${TRAVIS_BUILD_DIR}/issues/easylist_cookie_general_hide.txt"
-          --adblock "${TRAVIS_BUILD_DIR}/issues/fanboy_annoyance_specific_block.txt"
+          --adblock -f "${TRAVIS_BUILD_DIR}/issues/easyprivacy_trackingservers.txt"
+          --adblock -f "${TRAVIS_BUILD_DIR}/issues/easylist_cookie_general_hide.txt"
+          --adblock -f "${TRAVIS_BUILD_DIR}/issues/fanboy_annoyance_specific_block.txt"
         - tree --prune -f "${TRAVIS_BUILD_DIR}/.pyfunceble/"
     - language: generic
       os: linux
@@ -102,7 +102,7 @@ jobs:
         - tree "${TRAVIS_BUILD_DIR}/issues/"
       script:
         - pyfunceble --ci --syntax -ex -w $(nproc --ignore=2)
-          --adblock "${TRAVIS_BUILD_DIR}/issues/easyprivacy_trackingservers.txt"
+          --adblock -f "${TRAVIS_BUILD_DIR}/issues/easyprivacy_trackingservers.txt"
           "${TRAVIS_BUILD_DIR}/issues/easylist_cookie_general_hide.txt"
           "${TRAVIS_BUILD_DIR}/issues/fanboy_annoyance_specific_block.txt"
         - tree --prune -f "${TRAVIS_BUILD_DIR}/.pyfunceble/"
