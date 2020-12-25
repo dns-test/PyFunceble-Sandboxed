@@ -1,0 +1,3 @@
+idna_subject,checker_type,destination,source,tested_at
+invalid.invalid,SYNTAX,test.list,/home/travis/build/dns-test/PyFunceble-Sandboxed/test.list,2020-12-25 12:31:33.436893
+failed/syntax-test,SYNTAX,test.list,/home/travis/build/dns-test/PyFunceble-Sandboxed/test.list,2020-12-25 12:31:33.439211

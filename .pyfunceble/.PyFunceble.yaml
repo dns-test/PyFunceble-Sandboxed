@@ -29,6 +29,7 @@ cli_testing:
         percentage: true
         quiet: false
         simple: false
+        status: all
     file_filter: null
     file_generation:
         analytic: true
