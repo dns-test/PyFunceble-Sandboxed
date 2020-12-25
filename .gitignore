@@ -5,7 +5,7 @@ setup_miniconda.sh
 setup_travis.sh
 
 # Uncomment the following if you don't want any commit at the end of a session.
-# .pyfunceble
+.pyfunceble
 
 # Miniconda
 miniconda.sh
