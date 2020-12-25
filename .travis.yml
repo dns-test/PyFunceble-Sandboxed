@@ -141,23 +141,24 @@ jobs:
         - pyfunceble --ci --syntax -ex -w $(nproc --ignore=2) --dns-lookup
           -f "${TRAVIS_BUILD_DIR}/issues/50.list"
           -f 'https://raw.githubusercontent.com/spirillen/ci_test/patch-2/test.list'
-    - language: generic
-      os: linux
-      dist: focal
-      name: "Several input sources at once `-f` `-uf` `-ad` #115"
-      env:
-        - PYTHON_VERSION="3.9.1"
-      script:
-        - pyfunceble --ci --syntax -ex -w $(nproc --ignore=2) --database-type mariadb
-          -f "${TRAVIS_BUILD_DIR}/issues/50.list"
-          -f 'https://raw.githubusercontent.com/spirillen/ci_test/patch-2/test.list'
-    - language: generic
-      os: linux
-      dist: focal
-      name: "Several input sources at once `-f` `-uf` `-ad` #115"
-      env:
-        - PYTHON_VERSION="3.9.1"
-      script:
-        - pyfunceble --ci --syntax -ex -w $(nproc --ignore=2) --database-type mariadb
-          -f "${TRAVIS_BUILD_DIR}/issues/50.list" --no-file
-          -f 'https://raw.githubusercontent.com/spirillen/ci_test/patch-2/test.list'
+    # Waiting for https://github.com/funilrys/PyFunceble/issues/154
+    #- language: generic
+    #  os: linux
+    #  dist: focal
+    #  name: "Several input sources at once `-f` `-uf` `-ad` #115"
+    #  env:
+    #    - PYTHON_VERSION="3.9.1"
+    #  script:
+    #    - pyfunceble --ci --syntax -ex -w $(nproc --ignore=2) --database-type mariadb
+    #      -f "${TRAVIS_BUILD_DIR}/issues/50.list"
+    #      -f 'https://raw.githubusercontent.com/spirillen/ci_test/patch-2/test.list'
+    #- language: generic
+    #  os: linux
+    #  dist: focal
+    #  name: "Several input sources at once `-f` `-uf` `-ad` #115"
+    #  env:
+    #    - PYTHON_VERSION="3.9.1"
+    #  script:
+    #    - pyfunceble --ci --syntax -ex -w $(nproc --ignore=2) --database-type mariadb
+    #      -f "${TRAVIS_BUILD_DIR}/issues/50.list" --no-file
+    #      -f 'https://raw.githubusercontent.com/spirillen/ci_test/patch-2/test.list'
