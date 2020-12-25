@@ -79,7 +79,7 @@ jobs:
       env:
         - PYTHON_VERSION="3.9.1"
       script:
-        - pyfunceble --ci --syntax -ex -w 3 -f https://raw.githubusercontent.com/PyFunceble/ci_test/master/test.list --display-status INVALID --logging-level info
+        - pyfunceble --ci --syntax -ex -w $(nproc --ignore=2) -f https://raw.githubusercontent.com/PyFunceble/ci_test/master/test.list --display-status INVALID --logging-level info
     - language: generic
       os: osx
       osx_image: xcode11.2
@@ -87,7 +87,7 @@ jobs:
       env:
         - PYTHON_VERSION="3.9.1"
       script:
-        - pyfunceble --ci --syntax -ex -w 3 -f https://raw.githubusercontent.com/PyFunceble/ci_test/master/test.list --display-status INVALID --logging-level warning
+        - pyfunceble --ci --syntax -ex -w $(nproc --ignore=2) -f https://raw.githubusercontent.com/PyFunceble/ci_test/master/test.list --display-status INVALID --logging-level warning
     - language: generic
       os: linux
       dist: focal
@@ -95,7 +95,7 @@ jobs:
       env:
         - PYTHON_VERSION="3.9.1"
       script:
-        - pyfunceble --ci --syntax -ex -w 3 -f https://raw.githubusercontent.com/PyFunceble/ci_test/master/test.list --display-status INVALID --logging-level error
+        - pyfunceble --ci --syntax -ex -w $(nproc --ignore=2) -f https://raw.githubusercontent.com/PyFunceble/ci_test/master/test.list --display-status INVALID --logging-level error
     - language: generic
       os: osx
       osx_image: xcode11.2
@@ -103,4 +103,21 @@ jobs:
       env:
         - PYTHON_VERSION="3.9.1"
       script:
-        - pyfunceble --ci --syntax -ex -w 3 -f https://raw.githubusercontent.com/PyFunceble/ci_test/master/test.list --display-status INVALID --logging-level critical
+        - pyfunceble --ci --syntax -ex -w $(nproc --ignore=2) -f https://raw.githubusercontent.com/PyFunceble/ci_test/master/test.list --display-status INVALID --logging-level critical
+    - language: generic
+      os: linux
+      dist: focal
+      name: "Add a function to check a list of URLs for invalid URLs only."
+      env:
+        - PYTHON_VERSION="3.9.1"
+      script:
+        - pyfunceble --ci --syntax -ex -w $(nproc --ignore=2) -f "${TRAVIS_BUILD_DIR}/issues/50.list"
+    - language: generic
+      os: bionic
+      dist: focal
+      name: "Add a function to check a list of URLs for invalid URLs only."
+      env:
+        - PYTHON_VERSION="3.9.1"
+      script:
+        - pyfunceble --ci --syntax -ex -w $(nproc --ignore=2) -f "${TRAVIS_BUILD_DIR}/issues/50.list"
+
