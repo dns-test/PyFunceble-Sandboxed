@@ -120,7 +120,7 @@ jobs:
         - PYTHON_VERSION="3.9.1"
       script:
         - pyfunceble --ci --syntax -ex -w $(nproc --ignore=2) -f "${TRAVIS_BUILD_DIR}/issues/50.list"
-          --databse-type mariadb
+          --database-type mariadb
     - language: generic
       os: linux
       dist: focal
@@ -128,7 +128,7 @@ jobs:
       env:
         - PYTHON_VERSION="3.9.1"
       script:
-        - pyfunceble --ci --syntax -ex -w $(nproc --ignore=2) --no-dns
+        - pyfunceble --ci --syntax -ex -w $(nproc --ignore=2) --dns-lookup
           --database-type mariadb -f "${TRAVIS_BUILD_DIR}/issues/50.list"
           -f 'https://raw.githubusercontent.com/spirillen/ci_test/patch-2/test.list'
     - language: generic
@@ -138,7 +138,7 @@ jobs:
       env:
         - PYTHON_VERSION="3.9.1"
       script:
-        - pyfunceble --ci --syntax -ex -w $(nproc --ignore=2) --no-dns
+        - pyfunceble --ci --syntax -ex -w $(nproc --ignore=2) --dns-lookup
           -f "${TRAVIS_BUILD_DIR}/issues/50.list"
           -f 'https://raw.githubusercontent.com/spirillen/ci_test/patch-2/test.list'
     - language: generic
