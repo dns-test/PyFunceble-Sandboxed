@@ -57,9 +57,6 @@ git:
   depth: 2
 
 script:
-  - curl --retry 5 'https://raw.githubusercontent.com/easylist/easylist/master/easyprivacy/easyprivacy_trackingservers.txt' -O "${TRAVIS_BUILD_DIR}/issues/easyprivacy_trackingservers.txt"
-  - curl --retry 5 'https://raw.githubusercontent.com/easylist/easylist/master/easylist_cookie/easylist_cookie_general_hide.txt' -O "${TRAVIS_BUILD_DIR}/issues/easylist_cookie_general_hide.txt"
-  - curl --retry 5 'https://raw.githubusercontent.com/easylist/easylist/master/fanboy-addon/fanboy_annoyance_specific_block.txt' -O "${TRAVIS_BUILD_DIR}/issues/fanboy_annoyance_specific_block.txt"
   #- truncate -s 0 "${TRAVIS_BUILD_DIR}/run_id"
   #- echo "${TRAVIS_JOB_ID}" > "${TRAVIS_BUILD_DIR}/run_id"
   #- cat "${TRAVIS_BUILD_DIR}/run_id"
@@ -81,6 +78,10 @@ jobs:
       name: "adblock + syntax #156"
       env:
         - PYTHON_VERSION="3.9.1"
+      before_script:
+        - curl --retry 5 'https://raw.githubusercontent.com/easylist/easylist/master/easyprivacy/easyprivacy_trackingservers.txt' -O "${TRAVIS_BUILD_DIR}/issues/easyprivacy_trackingservers.txt"
+        - curl --retry 5 'https://raw.githubusercontent.com/easylist/easylist/master/easylist_cookie/easylist_cookie_general_hide.txt' -O "${TRAVIS_BUILD_DIR}/issues/easylist_cookie_general_hide.txt"
+        - curl --retry 5 'https://raw.githubusercontent.com/easylist/easylist/master/fanboy-addon/fanboy_annoyance_specific_block.txt' -O "${TRAVIS_BUILD_DIR}/issues/fanboy_annoyance_specific_block.txt"
       script:
         - pyfunceble --ci --syntax -ex -w $(nproc --ignore=2)
           --adblock "${TRAVIS_BUILD_DIR}/issues/easyprivacy_trackingservers.txt"
@@ -93,6 +94,10 @@ jobs:
       name: "adblock + syntax #156"
       env:
         - PYTHON_VERSION="3.9.1"
+      before_script:
+        - curl --retry 5 'https://raw.githubusercontent.com/easylist/easylist/master/easyprivacy/easyprivacy_trackingservers.txt' -O "${TRAVIS_BUILD_DIR}/issues/easyprivacy_trackingservers.txt"
+        - curl --retry 5 'https://raw.githubusercontent.com/easylist/easylist/master/easylist_cookie/easylist_cookie_general_hide.txt' -O "${TRAVIS_BUILD_DIR}/issues/easylist_cookie_general_hide.txt"
+        - curl --retry 5 'https://raw.githubusercontent.com/easylist/easylist/master/fanboy-addon/fanboy_annoyance_specific_block.txt' -O "${TRAVIS_BUILD_DIR}/issues/fanboy_annoyance_specific_block.txt"
       script:
         - pyfunceble --ci --syntax -ex -w $(nproc --ignore=2)
           --adblock "${TRAVIS_BUILD_DIR}/issues/easyprivacy_trackingservers.txt"
