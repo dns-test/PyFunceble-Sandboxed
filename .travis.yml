@@ -12,7 +12,7 @@ env:
   - TZ: UTC
   - PYTHON_VERSION: 3.9.1
   - SCRIPT_SOURCE_URI: https://raw.githubusercontent.com/dns-test/script-hub/master
-  #- PYFUNCEBLE_DEBUG: TRUE
+  - PYFUNCEBLE_DEBUG: false
   #- PYFUNCEBLE_DEBUG_ON_SCREEN: false
   #- Pyfunceble_version: 'PyFunceble@dev'
   - Pyfunceble_version: 'PyFunceble@4.0.0-dev'
@@ -75,60 +75,58 @@ jobs:
       language: generic
       os: linux
       dist: focal
-      name: "adblock + syntax #156"
+      name: "adblock + syntax #155"
       env:
         - PYTHON_VERSION="3.9.1"
       script:
         - pyfunceble --ci -a --syntax -ex -w $(nproc --ignore=2)
-          --adblock -f 'https://raw.githubusercontent.com/easylist/easylist/master/easyprivacy/easyprivacy_trackingservers.txt'
-          'https://raw.githubusercontent.com/easylist/easylist/master/easylist_cookie/easylist_cookie_general_hide.txt'
-          'https://raw.githubusercontent.com/easylist/easylist/master/fanboy-addon/fanboy_annoyance_specific_block.txt'
           --ci-branch "${TRAVIS_BRANCH}" --ci-distribution-branch "${TRAVIS_BRANCH}" -dbr 0
-          --dns doh.powerdns.org --dns-protocol HTTPS
           --dots --share-logs
+          --adblock -f
+          https://raw.githubusercontent.com/AdguardTeam/FiltersRegistry/master/filters/filter_2_English/filter.txt
+          https://raw.githubusercontent.com/AdguardTeam/FiltersRegistry/master/filters/filter_3_Spyware/filter.txt
+          https://raw.githubusercontent.com/AdguardTeam/FiltersRegistry/master/filters/filter_4_Social/filter.txt
+          https://raw.githubusercontent.com/AdguardTeam/FiltersRegistry/master/filters/filter_14_Annoyances/filter.txt
+          https://raw.githubusercontent.com/AdguardTeam/FiltersRegistry/master/filters/filter_10_Useful/filter.txt
+          https://raw.githubusercontent.com/AdguardTeam/FiltersRegistry/master/filters/filter_1_Russian/filter.txt
+          https://raw.githubusercontent.com/AdguardTeam/FiltersRegistry/master/filters/filter_6_German/filter.txt
+          https://raw.githubusercontent.com/AdguardTeam/FiltersRegistry/master/filters/filter_16_French/filter.txt
+          https://raw.githubusercontent.com/AdguardTeam/FiltersRegistry/master/filters/filter_7_Japanese/filter.txt
+          https://raw.githubusercontent.com/AdguardTeam/FiltersRegistry/master/filters/filter_8_Dutch/filter.txt
+          https://raw.githubusercontent.com/AdguardTeam/FiltersRegistry/master/filters/filter_9_Spanish/filter.txt
+          https://raw.githubusercontent.com/AdguardTeam/FiltersRegistry/master/filters/filter_13_Turkish/filter.txt
+          https://raw.githubusercontent.com/AdguardTeam/FiltersRegistry/master/filters/filter_224_Chinese/filter.txt
+          https://raw.githubusercontent.com/AdguardTeam/FiltersRegistry/master/filters/filter_5_Experimental/filter.txt
+          https://raw.githubusercontent.com/AdguardTeam/FiltersRegistry/master/filters/filter_11_Mobile/filter.txt
+          https://raw.githubusercontent.com/AdguardTeam/FiltersRegistry/master/filters/filter_15_DnsFilter/filter.txt
         - tree --prune -f "${TRAVIS_BUILD_DIR}/.pyfunceble/"
     - language: generic
       os: linux
       dist: focal
-      name: "adblock + syntax #156"
+      name: "adblock + syntax #155 Japaneese"
       env:
         - PYTHON_VERSION="3.9.1"
+        - USER_LANGUAGE=JA
+        - USER_COUNTRY=JA
       script:
         - pyfunceble --ci -a --database-type mariadb -ex -w $(nproc --ignore=2)
-          --adblock -f 'https://raw.githubusercontent.com/easylist/easylist/master/easyprivacy/easyprivacy_trackingservers.txt'
-          'https://raw.githubusercontent.com/easylist/easylist/master/easylist_cookie/easylist_cookie_general_hide.txt'
-          'https://raw.githubusercontent.com/easylist/easylist/master/fanboy-addon/fanboy_annoyance_specific_block.txt'
           --ci-branch "${TRAVIS_BRANCH}" --ci-distribution-branch "${TRAVIS_BRANCH}" -dbr 0
-          --dns doh.powerdns.org --dns-protocol HTTPS
           --dots --share-logs
-        - tree --prune -f "${TRAVIS_BUILD_DIR}/.pyfunceble/"
-    - language: generic
-      os: linux
-      dist: focal
-      name: "adblock + syntax #156"
-      env:
-        - PYTHON_VERSION="3.9.1"
-      script:
-        - pyfunceble --ci -a -ex -w $(nproc --ignore=2) --adblock 
-          -f 'https://raw.githubusercontent.com/easylist/easylist/master/easyprivacy/easyprivacy_trackingservers.txt'
-          'https://raw.githubusercontent.com/easylist/easylist/master/easylist_cookie/easylist_cookie_general_hide.txt'
-          'https://raw.githubusercontent.com/easylist/easylist/master/fanboy-addon/fanboy_annoyance_specific_block.txt'
-          --ci-branch "${TRAVIS_BRANCH}" --ci-distribution-branch "${TRAVIS_BRANCH}" -dbr 0
-          --dns doh.powerdns.org --dns-protocol HTTPS
-          --dots --share-logs
-        - tree --prune -f "${TRAVIS_BUILD_DIR}/.pyfunceble/"
-    - language: generic
-      os: linux
-      dist: focal
-      name: "adblock + syntax #156"
-      env:
-        - PYTHON_VERSION="3.9.1"
-      script:
-        - pyfunceble --ci -a -ex -w $(nproc --ignore=2) --adblock --database-type mariadb
-          -f 'https://raw.githubusercontent.com/easylist/easylist/master/easyprivacy/easyprivacy_trackingservers.txt'
-          'https://raw.githubusercontent.com/easylist/easylist/master/easylist_cookie/easylist_cookie_general_hide.txt'
-          'https://raw.githubusercontent.com/easylist/easylist/master/fanboy-addon/fanboy_annoyance_specific_block.txt'
-          --ci-branch "${TRAVIS_BRANCH}" --ci-distribution-branch "${TRAVIS_BRANCH}" -dbr 0
-          --dns doh.powerdns.org --dns-protocol HTTPS
-          --dots --share-logs
+          --adblock -f 
+          https://raw.githubusercontent.com/AdguardTeam/FiltersRegistry/master/filters/filter_2_English/filter.txt
+          https://raw.githubusercontent.com/AdguardTeam/FiltersRegistry/master/filters/filter_3_Spyware/filter.txt
+          https://raw.githubusercontent.com/AdguardTeam/FiltersRegistry/master/filters/filter_4_Social/filter.txt
+          https://raw.githubusercontent.com/AdguardTeam/FiltersRegistry/master/filters/filter_14_Annoyances/filter.txt
+          https://raw.githubusercontent.com/AdguardTeam/FiltersRegistry/master/filters/filter_10_Useful/filter.txt
+          https://raw.githubusercontent.com/AdguardTeam/FiltersRegistry/master/filters/filter_1_Russian/filter.txt
+          https://raw.githubusercontent.com/AdguardTeam/FiltersRegistry/master/filters/filter_6_German/filter.txt
+          https://raw.githubusercontent.com/AdguardTeam/FiltersRegistry/master/filters/filter_16_French/filter.txt
+          https://raw.githubusercontent.com/AdguardTeam/FiltersRegistry/master/filters/filter_7_Japanese/filter.txt
+          https://raw.githubusercontent.com/AdguardTeam/FiltersRegistry/master/filters/filter_8_Dutch/filter.txt
+          https://raw.githubusercontent.com/AdguardTeam/FiltersRegistry/master/filters/filter_9_Spanish/filter.txt
+          https://raw.githubusercontent.com/AdguardTeam/FiltersRegistry/master/filters/filter_13_Turkish/filter.txt
+          https://raw.githubusercontent.com/AdguardTeam/FiltersRegistry/master/filters/filter_224_Chinese/filter.txt
+          https://raw.githubusercontent.com/AdguardTeam/FiltersRegistry/master/filters/filter_5_Experimental/filter.txt
+          https://raw.githubusercontent.com/AdguardTeam/FiltersRegistry/master/filters/filter_11_Mobile/filter.txt
+          https://raw.githubusercontent.com/AdguardTeam/FiltersRegistry/master/filters/filter_15_DnsFilter/filter.txt
         - tree --prune -f "${TRAVIS_BUILD_DIR}/.pyfunceble/"
