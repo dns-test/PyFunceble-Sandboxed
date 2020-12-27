@@ -13,7 +13,7 @@ env:
   - PYTHON_VERSION: 3.9.1
   - SCRIPT_SOURCE_URI: https://raw.githubusercontent.com/dns-test/script-hub/master
   #- PYFUNCEBLE_DEBUG: TRUE
-  #- PYFUNCEBLE_DEBUG_ON_SCREEN: false
+  - PYFUNCEBLE_DEBUG_ON_SCREEN: false
   #- Pyfunceble_version: 'PyFunceble@dev'
   - Pyfunceble_version: 'PyFunceble@4.0.0-dev'
   - PYFUNCEBLE_CONFIG_DIR: "${TRAVIS_BUILD_DIR}/.pyfunceble/"
@@ -72,93 +72,35 @@ script:
 jobs:
   include:
     - stage: "CLI (running) Tests"
-    #  language: generic
-    #  os: linux
-    #  dist: focal
-    #  name: "display-status INVALID logging-level info"
-    #  env:
-    #    - PYTHON_VERSION="3.9.1"
-    #  script:
-    #    - pyfunceble --ci --syntax -ex -w $(nproc --ignore=2) -f https://raw.githubusercontent.com/PyFunceble/ci_test/master/test.list --display-status INVALID --logging-level info
-    #- language: generic
-    #  os: osx
-    #  osx_image: xcode11.2
-    #  name: "Code Test with Python 3.8.3 under macOS 10.14 (Mojave)"
-    #  env:
-    #    - PYTHON_VERSION="3.9.1"
-    #  script:
-    #    - pyfunceble --ci --syntax -ex -w $(nproc --ignore=2) -f https://raw.githubusercontent.com/PyFunceble/ci_test/master/test.list --display-status INVALID --logging-level warning
-    #- language: generic
-    #  os: linux
-    #  dist: focal
-    #  name: "Code Test with Python 3.7.7 under Ubuntu 18.04 (Bionic Beaver)"
-    #  env:
-    #    - PYTHON_VERSION="3.9.1"
-    #  script:
-    #    - pyfunceble --ci --syntax -ex -w $(nproc --ignore=2) -f https://raw.githubusercontent.com/PyFunceble/ci_test/master/test.list --display-status INVALID --logging-level error
-    #- language: generic
-    #  os: osx
-    #  osx_image: xcode11.2
-    #  name: "Code Test with Python 3.7.7 under macOS 10.14 (Mojave)"
-    #  env:
-    #    - PYTHON_VERSION="3.9.1"
-    #  script:
-    #    - pyfunceble --ci --syntax -ex -w $(nproc --ignore=2) -f https://raw.githubusercontent.com/PyFunceble/ci_test/master/test.list --display-status INVALID --logging-level critical
+      language: generic
+      os: linux
+      dist: focal
+      name: "display-status INVALID logging-level info"
+      env:
+        - PYTHON_VERSION="3.9.0"
+      script:
+        - pyfunceble --ci --syntax -ex -f https://raw.githubusercontent.com/PyFunceble/ci_test/master/test.list --display-status INVALID,INACTIVE
+    - language: generic
+      os: osx
+      osx_image: xcode11.2
+      name: "Code Test with Python 3.8.3 under macOS 10.14 (Mojave)"
+      env:
+        - PYTHON_VERSION="3.9.1"
+      script:
+        - pyfunceble --ci --syntax -ex -f https://raw.githubusercontent.com/PyFunceble/ci_test/master/test.list --display-status INVALID INACTIVE
     - language: generic
       os: linux
       dist: focal
-      name: "Add a function to check a list of URLs for invalid URLs only. #50"
+      name: "Code Test with Python 3.7.7 under Ubuntu 18.04 (Bionic Beaver)"
       env:
-        - PYTHON_VERSION="3.9.1"
+        - PYTHON_VERSION="3.8.5"
       script:
-        - pyfunceble --ci --syntax -ex -w $(nproc --ignore=2) -f "${TRAVIS_BUILD_DIR}/issues/50.list"
+        - pyfunceble --ci --syntax -ex -f https://raw.githubusercontent.com/PyFunceble/ci_test/master/test.list --display-status INVALID VALID
     - language: generic
-      os: linux
-      dist: bionic
-      name: "Add a function to check a list of URLs for invalid URLs only. #50"
+      os: osx
+      osx_image: xcode11.2
+      name: "Code Test with Python 3.7.7 under macOS 10.14 (Mojave)"
       env:
         - PYTHON_VERSION="3.9.1"
       script:
-        - pyfunceble --ci --syntax -ex -w $(nproc --ignore=2) -f "${TRAVIS_BUILD_DIR}/issues/50.list"
-          --database-type mariadb
-    - language: generic
-      os: linux
-      dist: focal
-      name: "Several input sources at once `-f` `-uf` `-ad` #115"
-      env:
-        - PYTHON_VERSION="3.9.1"
-      script:
-        - pyfunceble --ci --syntax -ex -w $(nproc --ignore=2) --dns-lookup
-          --database-type mariadb -f "${TRAVIS_BUILD_DIR}/issues/50.list"
-          -f 'https://raw.githubusercontent.com/spirillen/ci_test/patch-2/test.list'
-    - language: generic
-      os: linux
-      dist: focal
-      name: "Several input sources at once `-f` `-uf` `-ad` #115"
-      env:
-        - PYTHON_VERSION="3.9.1"
-      script:
-        - pyfunceble --ci --syntax -ex -w $(nproc --ignore=2) --dns-lookup
-          -f "${TRAVIS_BUILD_DIR}/issues/50.list"
-          -f 'https://raw.githubusercontent.com/spirillen/ci_test/patch-2/test.list'
-    # Waiting for https://github.com/funilrys/PyFunceble/issues/154
-    #- language: generic
-    #  os: linux
-    #  dist: focal
-    #  name: "Several input sources at once `-f` `-uf` `-ad` #115"
-    #  env:
-    #    - PYTHON_VERSION="3.9.1"
-    #  script:
-    #    - pyfunceble --ci --syntax -ex -w $(nproc --ignore=2) --database-type mariadb
-    #      -f "${TRAVIS_BUILD_DIR}/issues/50.list"
-    #      -f 'https://raw.githubusercontent.com/spirillen/ci_test/patch-2/test.list'
-    #- language: generic
-    #  os: linux
-    #  dist: focal
-    #  name: "Several input sources at once `-f` `-uf` `-ad` #115"
-    #  env:
-    #    - PYTHON_VERSION="3.9.1"
-    #  script:
-    #    - pyfunceble --ci --syntax -ex -w $(nproc --ignore=2) --database-type mariadb
-    #      -f "${TRAVIS_BUILD_DIR}/issues/50.list" --no-file
-    #      -f 'https://raw.githubusercontent.com/spirillen/ci_test/patch-2/test.list'
+        - pyfunceble --ci --syntax -ex -f https://raw.githubusercontent.com/PyFunceble/ci_test/master/test.list --display-status INVALID ACTIVE
