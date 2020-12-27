@@ -1,8 +1,6 @@
 idna_subject,checker_type,destination,source,tested_at
 invalid.invalid,SYNTAX,test.list,/home/travis/build/dns-test/PyFunceble-Sandboxed/test.list,2020-12-25 12:31:33.436893
 failed/syntax-test,SYNTAX,test.list,/home/travis/build/dns-test/PyFunceble-Sandboxed/test.list,2020-12-25 12:31:33.439211
-invalid.invalid,SYNTAX,test.list,/Users/travis/build/dns-test/PyFunceble-Sandboxed/test.list,2020-12-25 12:58:13.774872
-failed/syntax-test,SYNTAX,test.list,/Users/travis/build/dns-test/PyFunceble-Sandboxed/test.list,2020-12-25 12:58:13.776256
 POOL.moneropool.com,SYNTAX,50.list,/home/travis/build/dns-test/PyFunceble-Sandboxed/50.list,2020-12-25 13:19:50.208890
 VPWCHCDEVWEB001.cryptopia.co.nz,SYNTAX,50.list,/home/travis/build/dns-test/PyFunceble-Sandboxed/50.list,2020-12-25 13:19:50.209995
 //github.com,SYNTAX,50.list,/home/travis/build/dns-test/PyFunceble-Sandboxed/50.list,2020-12-25 13:19:50.225760
@@ -10,3 +8,12 @@ github.com/,SYNTAX,50.list,/home/travis/build/dns-test/PyFunceble-Sandboxed/50.l
 github./com,SYNTAX,50.list,/home/travis/build/dns-test/PyFunceble-Sandboxed/50.list,2020-12-25 13:19:50.228459
 github.com/.,SYNTAX,50.list,/home/travis/build/dns-test/PyFunceble-Sandboxed/50.list,2020-12-25 13:19:50.229325
 http://github.com/,SYNTAX,50.list,/home/travis/build/dns-test/PyFunceble-Sandboxed/50.list,2020-12-25 13:19:50.230448
+POOL.moneropool.com,SYNTAX,test.list,/Users/travis/build/dns-test/PyFunceble-Sandboxed/test.list,2020-12-27 01:19:10.940064
+VPWCHCDEVWEB001.cryptopia.co.nz,SYNTAX,test.list,/Users/travis/build/dns-test/PyFunceble-Sandboxed/test.list,2020-12-27 01:19:10.943738
+invalid.invalid,SYNTAX,test.list,/Users/travis/build/dns-test/PyFunceble-Sandboxed/test.list,2020-12-27 01:19:10.901961
+failed/syntax-test,SYNTAX,test.list,/Users/travis/build/dns-test/PyFunceble-Sandboxed/test.list,2020-12-27 01:19:10.961062
+github.com/,SYNTAX,test.list,/Users/travis/build/dns-test/PyFunceble-Sandboxed/test.list,2020-12-27 01:19:10.992500
+github.com/.,SYNTAX,test.list,/Users/travis/build/dns-test/PyFunceble-Sandboxed/test.list,2020-12-27 01:19:11.020154
+//github.com,SYNTAX,test.list,/Users/travis/build/dns-test/PyFunceble-Sandboxed/test.list,2020-12-27 01:19:11.019504
+http://github.com/,SYNTAX,test.list,/Users/travis/build/dns-test/PyFunceble-Sandboxed/test.list,2020-12-27 01:19:11.061280
+github./com,SYNTAX,test.list,/Users/travis/build/dns-test/PyFunceble-Sandboxed/test.list,2020-12-27 01:19:11.072685
