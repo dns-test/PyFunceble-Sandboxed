@@ -75,7 +75,7 @@ jobs:
       language: generic
       os: linux
       dist: focal
-      name: "display-status INVALID logging-level info"
+      name: "display-status comma seperated"
       env:
         - PYTHON_VERSION="3.9.0"
       script:
@@ -83,7 +83,7 @@ jobs:
     - language: generic
       os: osx
       osx_image: xcode11.2
-      name: "Code Test with Python 3.8.3 under macOS 10.14 (Mojave)"
+      name: "display-status space seperated"
       env:
         - PYTHON_VERSION="3.9.1"
       script:
@@ -91,7 +91,7 @@ jobs:
     - language: generic
       os: linux
       dist: focal
-      name: "Code Test with Python 3.7.7 under Ubuntu 18.04 (Bionic Beaver)"
+      name: "display-status space seperated"
       env:
         - PYTHON_VERSION="3.8.5"
       script:
@@ -99,7 +99,14 @@ jobs:
     - language: generic
       os: osx
       osx_image: xcode11.2
-      name: "Code Test with Python 3.7.7 under macOS 10.14 (Mojave)"
+      name: "display-status space seperated"
+      env:
+        - PYTHON_VERSION="3.9.1"
+      script:
+        - pyfunceble --ci --syntax -ex -f https://raw.githubusercontent.com/PyFunceble/ci_test/master/test.list --display-status INVALID ACTIVE
+    - language: generic
+      os: windows
+      name: "display-status space seperated"
       env:
         - PYTHON_VERSION="3.9.1"
       script:
