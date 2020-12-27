@@ -104,10 +104,3 @@ jobs:
         - PYTHON_VERSION="3.9.1"
       script:
         - pyfunceble --ci --syntax -ex -f https://raw.githubusercontent.com/PyFunceble/ci_test/master/test.list --display-status INVALID ACTIVE
-    - language: generic
-      os: windows
-      name: "display-status space seperated"
-      env:
-        - PYTHON_VERSION="3.9.1"
-      script:
-        - pyfunceble --ci --syntax -ex -f https://raw.githubusercontent.com/PyFunceble/ci_test/master/test.list --display-status INVALID ACTIVE
